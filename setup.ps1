@@ -35,3 +35,5 @@ $logFile = [System.IO.Path]::GetTempFileName()
 $proc = (Start-Process $tempFile -PassThru "/quiet /install /log $logFile")
 $proc | Wait-Process
 Get-Content $logFile
+
+New-NetFirewallRule -DisplayName "IIS.Administration" -Direction Inbound  -Action Allow -Protocol TCP -LocalPort 55539
