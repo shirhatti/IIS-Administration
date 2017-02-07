@@ -24,3 +24,14 @@ $proc | Wait-Process
 Get-Content $logFile
 
 Restart-Service -Name W3SVC
+
+$tempFile = [System.IO.Path]::GetTempFileName() |
+    Rename-Item -NewName { $_ -replace 'tmp$', 'exe' } -PassThru
+Invoke-WebRequest -Uri https://download.microsoft.com/download/A/A/7/AA751AE2-010E-404E-AF5E-67016A2415D3/1.0.38/IISAdministrationSetup.exe -OutFile $tempFile
+
+$logFile = [System.IO.Path]::GetTempFileName()
+
+
+$proc = (Start-Process $tempFile -PassThru "/quiet /install /log $logFile")
+$proc | Wait-Process
+Get-Content $logFile
