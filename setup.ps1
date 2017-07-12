@@ -1,6 +1,5 @@
 Install-WindowsFeature -Name Web-Server
 Install-WindowsFeature -Name Web-Windows-Auth
-Install-WindowsFeature -Name Web-WHC
 
 $tempFile = [System.IO.Path]::GetTempFileName() |
     Rename-Item -NewName { $_ -replace 'tmp$', 'exe' } -PassThru
@@ -14,7 +13,7 @@ Get-Content $logFile
 
 $tempFile = [System.IO.Path]::GetTempFileName() |
     Rename-Item -NewName { $_ -replace 'tmp$', 'exe' } -PassThru
-Invoke-WebRequest -Uri http://download.microsoft.com/download/A/3/8/A38489F3-9777-41DD-83F8-2CBDFAB2520C/DotNetCore.1.0.0-WindowsHosting.exe -OutFile $tempFile
+Invoke-WebRequest -Uri https://download.microsoft.com/download/7/8/5/7852163D-1A56-4642-84B6-60A8537343EF/dotnet-win-x64.1.0.5.exe -OutFile $tempFile
 
 $logFile = [System.IO.Path]::GetTempFileName()
 
@@ -27,7 +26,7 @@ Restart-Service -Name W3SVC
 
 $tempFile = [System.IO.Path]::GetTempFileName() |
     Rename-Item -NewName { $_ -replace 'tmp$', 'exe' } -PassThru
-Invoke-WebRequest -Uri https://download.microsoft.com/download/A/A/7/AA751AE2-010E-404E-AF5E-67016A2415D3/1.0.38/IISAdministrationSetup.exe -OutFile $tempFile
+Invoke-WebRequest -Uri https://download.microsoft.com/download/A/A/7/AA751AE2-010E-404E-AF5E-67016A2415D3/2.0.0/IISAdministrationSetup.exe -OutFile $tempFile
 
 $logFile = [System.IO.Path]::GetTempFileName()
 
