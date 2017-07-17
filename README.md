@@ -13,6 +13,11 @@
 
 - Run [`setup.ps1`](https://github.com/shirhatti/IIS-Administration/blob/master/setup.ps1) in an elevated prompt
 
+## Getting Started
+
+- Take ownership of `C:\Program Files\IIS Administration\2.0.0\Microsoft.IIS.Administration\config\appsettings.json`
+- Edit `appsettings.json` to grant yourself permissions to generate API tokens and access the API
+
 ## Related Resources
 - [Download IISAdministration](https://manage.iis.net/get)
 - [Web Manager](https://manage.iis.net)
